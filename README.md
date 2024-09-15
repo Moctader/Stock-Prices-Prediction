@@ -1,4 +1,4 @@
-# TAIS-Financial-Stock-Prices-Prediction
+# Financial Stock Prices Prediction
 
 # Clear Fully Dcoker
 
