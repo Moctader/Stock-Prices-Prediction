@@ -1,0 +1,12 @@
+service: "app/main.py:StartService"
+labels:
+  owner: Magnus-Westerlund
+  project: FinTech-Model-Trainig-Service
+include:
+  - "*.py"
+api_server:
+  http:
+    port: 8062
+python:
+  requirements_txt: "./requirements.txt"
+  lock_packages: false

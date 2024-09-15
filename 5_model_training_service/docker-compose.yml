@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  grpc_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "50051:50051"
+    networks:
+      - grpc_network
+
+networks:
+  grpc_network:
+    driver: bridge

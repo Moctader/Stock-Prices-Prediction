@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package bentoml;
+
+service BentoMLService {
+    rpc TrainModel (TrainRequest) returns (TrainResponse);
+    rpc Predict (PredictRequest) returns (PredictResponse);
+    rpc GetModelInfo (Empty) returns (ModelInfoResponse);
+}
+
+message Empty {}
+
+message TrainRequest {
+    repeated Data data = 1;
+}
+
+message TrainResponse {
+    float mse = 1;
+}
+
+message PredictRequest {
+    repeated Data data = 1;
+}
+
+message PredictResponse {
+    repeated float predictions = 1;
+}
+
+message ModelInfoResponse {
+    string model = 1;
+    string status = 2;
+}
+
+message Data {
+    string code = 1;
+    string exchange_short_name = 2;
+    string date = 3;
+    float open = 4;
+    float high = 5;
+    float low = 6;
+    float close = 7;
+    float adjusted_close = 8;
+    int32 volume = 9;
+    float prev_close = 10;
+    float change = 11;
+    float change_p = 12;
+    float mid_price = 13;
+    float volatility = 14;
+    float future_price = 15;
+    int32 price_increase = 16;
+}

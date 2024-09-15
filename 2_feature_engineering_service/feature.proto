@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package feature;
+
+service FeatureService {
+    rpc Process (ProcessRequest) returns (ProcessResponse);
+}
+
+message TimeSeriesData {
+    int64 timestamp = 1;
+    string date = 2;
+    double open = 3;
+    double high = 4;
+    double low = 5;
+    double close = 6;
+    double volume = 7;
+    double adjusted_close = 8;
+    double prev_close = 9;
+    double change = 10;
+    double change_p = 11;
+}
+
+message ProcessRequest {
+    repeated TimeSeriesData data = 1;
+}
+
+message ProcessResponse {
+    repeated TimeSeriesData data = 1;
+}

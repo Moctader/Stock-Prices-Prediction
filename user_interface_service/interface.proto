@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package interface;
+
+service InterfaceService {
+    rpc GetAAPLData (GetStockRequest) returns (GetStockResponse);
+    rpc GetMSFTData (GetStockRequest) returns (GetStockResponse);
+    rpc GetGOOGLData (GetStockRequest) returns (GetStockResponse);
+    rpc GetAMZNData (GetStockRequest) returns (GetStockResponse);
+    rpc GetTSLAData (GetStockRequest) returns (GetStockResponse);
+    rpc GetFBData (GetStockRequest) returns (GetStockResponse);
+}
+
+message GetStockRequest {
+    string symbol = 1;
+}
+
+message GetStockResponse {
+    repeated StockData data = 1;
+}
+
+message StockData {
+    string date = 1;
+    double open = 2;
+    double high = 3;
+    double low = 4;
+    double close = 5;
+    double adjusted_close = 6;
+    int64 volume = 7;
+    double prev_close = 8;
+    double change = 9;
+    double change_p = 10;
+}

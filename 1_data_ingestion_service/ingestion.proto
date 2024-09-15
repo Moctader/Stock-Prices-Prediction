@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package ingestion;
+
+service IngestionService {
+    rpc Ingest (IngestRequest) returns (IngestResponse);
+}
+
+message IngestRequest {
+    string symbol = 1;
+}
+
+message IngestResponse {
+    string message = 1;
+}
